@@ -7,7 +7,54 @@
 </head>
 <body>
     <link rel="stylesheet" href="Assets%20Folder/style.css">
+    <header class="container mb-1" role="banner">
+        <div class="card row" style="align-items:center;gap:.75rem;">
+            <div class="col">
+                <h2 style="margin-bottom:.25rem;">Enhanced Demo</h2>
+                <p style="margin-bottom:0.25rem; color:var(--muted);">
+                    Small improvements: theme toggle, quick instructions, and accessibility helpers.
+                </p>
+                <p style="margin:0;font-size:.9rem;color:var(--muted);">
+                    Tip: Type an item and press Enter or click Add. Use the Toggle Highlight button to emphasize the card.
+                </p>
+            </div>
+            <div class="col text-center" style="min-width:160px;">
+                <button id="themeToggle" class="button secondary" aria-pressed="false" aria-label="Toggle dark theme">Toggle Theme</button>
+            </div>
+        </div>
+    </header>
 
+    <script>
+        (function(){
+            const btn = document.getElementById('themeToggle');
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+            });
+        })();
+    </script>
+
+    <style>
+        .mb-1{ margin-bottom:1rem; }
+        /* lightweight dark theme that respects existing variables */
+        body.dark{
+            background:#0b1220;
+            color:#e6eefc;
+        }
+        body.dark .card{
+            background:#071026;
+            color:#e6eefc;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+        }
+        body.dark input, body.dark textarea, body.dark select{
+            background:#0b1220;
+            border-color:#172033;
+            color:#e6eefc;
+        }
+        body.dark .button{ background:#1f2937; color:#e6eefc; }
+        body.dark .button.secondary{ background:#0f1724; color:#cbd5e1; }
+    </style>
     <div id="app" class="container">
         <div class="card">
             <h1 class="text-center">Basic DOM App</h1>
