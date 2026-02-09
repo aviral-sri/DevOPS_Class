@@ -7,12 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.createElement('div');
         container.id = 'app';
         container.innerHTML = `
-            <h1>Basic DOM</h1>
-            <input id="itemInput" placeholder="Add item" />
-            <button id="addBtn">Add</button>
-            <button id="toggleBtn">Toggle Highlight</button>
-            <p id="count">Items: 0</p>
-            <ul id="list"></ul>
+            <div class="card">
+            <h1 class="text-center">Basic DOM App</h1>
+            <div class="mt-2">
+                <label for="itemInput" class="visually-hidden">Item</label>
+                <input id="itemInput" placeholder="Add item" />
+                <div class="mt-1">
+                <button id="addBtn" class="button">Add</button>
+                <button id="toggleBtn" class="button secondary">Toggle Highlight</button>
+                </div>
+                <p id="count" class="mt-2">Items: 0</p>
+                <ul id="list"></ul>
+            </div>
+            </div>
         `;
         root.appendChild(container);
     }
